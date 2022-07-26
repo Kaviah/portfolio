@@ -1,0 +1,516 @@
+/* Passo 1 - importando fontes */
+
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;700&family=Righteous&display=swap');
+
+/* Passo 2 - eliminar algumas configurações nativas do HTML */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /* define que o tamanho do elemento inclui padding e border */     
+}
+
+/* Passo 3 - Definições gerais do documento */
+
+html {
+    font-size: 10px;
+    font-family: 'Inconsolata', monospace, Verdana, Geneva, Tahoma, sans-serif;
+    scroll-behavior: smooth; /* define um scroll mais amigável na rolagem da página */
+}
+
+a {
+    text-decoration: none; /* retira sublinhado e cor do link nativos */
+    color: black;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    /* object-fit specify how an <img> or <video> should be resized to fit its container
+    cover: mantém proporção e preenche a dimensão dada. Pode ser cortada para caber
+    */
+}
+
+p {
+    font-size: 1.4rem;
+    margin-top: 5px;
+    line-height: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 0.05rem;
+}
+
+nav {
+    background-color: gold;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 20px;
+    padding: 5px 30px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: blueviolet;
+    font-size: 22px;
+}
+
+nav a {
+    padding: 10px;
+}
+
+/* Passo 4 - Definir configurações de container e de section-title */
+
+.container {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-title {
+    font-size: 4rem;
+    font-weight: 700;
+    color: black;
+    margin-bottom: 50px;
+    padding-top: 40px;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    text-align: center;
+
+}
+
+/* Passo 5 - Definir seção de apresentação */
+
+#presentation {
+    background-image: url(./images/bg_contato.webp);
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+}
+
+#presentation h1{
+    display: block;
+    width: fit-content;
+    font-size: 4rem;
+    position: relative;
+    color: transparent;
+    animation: text_reveal .5s ease forwards;
+    animation-delay: 5.5s;
+}
+
+#presentation h1:nth-child(1) {
+    animation-delay: .8s;
+}
+
+#presentation h1:nth-child(2) {
+    animation-delay: 1.8s;
+}
+
+#presentation h1:nth-child(3) {
+    animation: text_reveal_name .5s ease forwards;
+    animation-delay: 2.8s;
+}
+
+#presentation .cta {
+    display: inline-block;
+    padding: 10px 30px;
+    color: gold;
+    background-color: transparent;
+    border: 2px solid gold;
+    border-radius: 30px;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    margin-top: 20px;
+    transition: .5s ease;
+    transition-property: background-color, color;
+}
+
+#presentation .cta:hover {
+    color: blueviolet;
+    font-weight: 700;
+    background-color: gold;
+}
+
+#presentation h1 span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    animation: text_reveal_box 1s ease;
+    animation-delay: .9s;
+    background-color: gold;
+}
+
+#presentation h1:nth-child(1) span {
+    animation-delay: .5s;
+}
+
+#presentation h1:nth-child(2) span {
+    animation-delay: 1.5s;
+}
+
+#presentation h1:nth-child(3) span {
+    animation-delay: 2.5s;
+}
+
+#presentation::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.6;
+    z-index: -1;
+}
+
+/* Portfolio */
+
+#portfolio .portfolio {
+    flex-direction: column;
+    padding: 40px;
+    margin-bottom: 0;
+    background-image: url(./images/back_viagens.webp);
+    background-size: contain;
+}
+
+#portfolio .portfolio-header h2 {
+    margin-bottom: 100px;
+}
+
+#portfolio .all-projects {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#portfolio .project-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    margin: 20px auto; 
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+}
+
+#portfolio .project-info {
+    padding: 30px;
+    flex-basis: 30%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    background-image: linear-gradient(45deg,black, gold 150%);
+    color: white;
+}
+
+#portfolio .project-info .cta {
+    padding: 10px 20px;
+    color: gold;
+    background-color: transparent;
+    border: 2px solid gold;
+    border-radius: 30px;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    margin-top: 20px;
+    transition: .5s ease;
+    transition-property: background-color, color;
+}
+
+#portfolio .project-info .cta:hover {
+    color: blueviolet;
+    font-weight: 700;
+    background-color: gold;
+}
+
+#portfolio .project-info h3{
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+#portfolio .project-info h4 {
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin-top: 12px;
+    line-height: 1.2;
+}
+
+#portfolio .project-img {
+    flex-basis: 50%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+#portfolio .project-img:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(60deg, #363636 0%, #000000 100%);
+    opacity: 0.5;
+}
+
+#portfolio .project-img:hover:after {
+    opacity: 0;
+}
+
+#portfolio .project-img img {
+    transition: 0.5s ease transform;
+}
+
+#portfolio .project-item:hover .project-img img {
+    transform: scale(1.1);
+
+}
+
+/* Sobre Mim */
+
+#about {
+    background-color: #000000;
+    position: relative;
+    background-image: url(./images/bg_contato.webp);
+    
+    
+}
+
+.perfil {
+    width: 200px;
+    object-fit: contain;
+    /*display: flex;
+    margin-left: auto;
+    margin-right: auto; */
+    border-radius: 500px;
+    margin-bottom: 20px;
+    ;
+}
+
+#about .about-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-width: 800px;
+    text-align: justify;
+    justify-content: center;
+    align-items: center;
+    margin: auto 12%;
+    color: rgb(228, 225, 225);
+    padding-bottom: 40px;
+}
+
+#about p {
+    margin-bottom: 13px;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+#about h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    animation: type_writing 5s ease forwards;
+    animation-delay: 1s;
+}
+
+.about-me {
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+
+}
+
+#gallery {
+    
+    background-image: url(./images/back_viagens.webp);
+    background-size: contain;
+}
+
+#gallery .gallery-container {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    justify-content: center;
+    position: relative;
+}
+
+#gallery img {
+    width: auto;
+    margin: 10px;
+
+}
+
+#gallery img:hover {
+
+    transform: scale(1.1);
+    transition: 0.5s ease transform;
+}
+
+#contato {
+    background-color: #000000;
+    color: whitesmoke;
+    padding-bottom: 60px;
+    background-image: url(./images/bg_contato.webp);
+    background-size: cover;
+    background-position: top left;
+}
+
+#contato .section-title {
+    color: yellow;
+}
+
+.contato {
+    font-size: 2rem;
+    
+    line-height: 1em;
+}
+
+.contato a {
+    color:rgb(146, 146, 245);
+    cursor: pointer;
+}
+
+.contato img {
+    max-width: 32px;
+    margin: 0 auto;
+}
+
+address {
+    text-decoration: none;
+    display: grid;
+    grid-template-areas: 
+      'icon1 email'
+      'icon2 tel'
+      'icon3 linkedin'
+      'icon4 github'; 
+    align-items: center;
+}
+
+address > div {
+    padding: 10px;
+    align-items: center;
+}
+
+.icon1 {
+    grid-area: icon1;
+    justify-self: end;
+}
+
+.email {
+    grid-area: email;
+}
+
+.icon2 {
+    grid-area: icon2;
+    justify-self: end;
+}
+
+.tel {
+    grid-area: tel;
+}
+
+.icon3 {
+    grid-area: icon3;
+    justify-self: end;
+}
+
+.linkedin {
+    grid-area: linkedin;
+}
+
+.icon4 {
+    grid-area: icon4;
+    justify-self: end;
+}
+
+.github {
+    grid-area: github;
+    z-index: ;
+}
+
+#fixo {
+    position: fixed; right: 2px; bottom: 2px;
+    z-index: 50;
+    background-color: yellow;
+    border: black 1px solid;
+    opacity: 0.5;
+    padding: 5px 12px 5px;
+    font-size: x-large;
+    font-weight: 700;
+    
+
+}
+
+#fixo:hover {
+    opacity: 1;
+}
+
+/* Keyframes */
+
+@keyframes text_reveal {
+    100% {
+        color: white;
+    }
+}
+
+@keyframes text_reveal_name {
+    100% {
+        color: gold;
+        font-weight: 700;
+    }
+}
+
+@keyframes text_reveal_box {
+    50% {
+        width: 100%;
+        left: 0;
+    }
+    100% {
+        width: 0;
+        left: 100%;
+    }
+}
+
+@keyframes type_writing {
+    100% {
+        color:blueviolet;
+        font-size: 3em;
+    }
+}
+
+/* Media Query */
+
+@media only screen and (min-width: 768px) {
+    #portfolio .project-item {
+        flex-direction: row;
+        height: 400px;
+        margin: 0;
+        width: 100%;
+        border-radius: 0;
+    }
+    #portfolio .all-projects .project-info{
+        height: 100%
+    }
+    #portfolio .all-projects .project-img{
+        height: 100%
+    }
+    #portfolio .project-item:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+}
